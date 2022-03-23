@@ -33,15 +33,6 @@ public class GameOfConway {
 		// Print World.
 		worldPrint();
 
-		// Game.
-		do {
-
-			System.out.println("\n\n" + worldRules[0] + "" + worldRules[1] + "/" + worldRules[2]);
-
-			System.out.print("\n" + WIDTH + " " + HEIGHT + "\n");
-
-		} while (gameLoop);
-
 	}
 
 	// WorldPrinting function.
@@ -225,6 +216,151 @@ public class GameOfConway {
 
 						}
 
+					} else if (count > 0 && count < HEIGHT) {
+
+						if (metaCount == 0) {
+
+							// Serch the cells near.
+							if (world[(count - 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[count][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count - 1)][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+
+							// Compare the near cells.
+							if (sum == worldRules[2]) {
+
+								newWorld[count][metaCount] = '·';
+
+							}
+
+						} else if (metaCount == WIDTH) {
+
+							// Serch the cells near.
+							if (world[(count - 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[count][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count - 1)][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+
+							// Compare the near cells.
+							if (sum == worldRules[2]) {
+
+								newWorld[count][metaCount] = '·';
+
+							}
+
+						} else {
+
+							// Serch the cells near.
+							if (world[(count - 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[count][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[count][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count - 1)][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count - 1)][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+
+							// Compare the near cells.
+							if (sum == worldRules[2]) {
+
+								newWorld[count][metaCount] = '·';
+
+							}
+
+						}
+
 					} else if (count == HEIGHT) {
 
 						if (metaCount == 0) {
@@ -328,8 +464,6 @@ public class GameOfConway {
 
 						}
 
-					} else if (count == HEIGHT) {
-
 					}
 
 				}
@@ -343,8 +477,9 @@ public class GameOfConway {
 	// Game Function.
 	private void game() {
 
-		// inicialize variables.
+		// Inicialize variables.
 		boolean bucleJoc = true;
+		String question;
 
 		// Game.
 		while (bucleJoc) {
@@ -355,6 +490,15 @@ public class GameOfConway {
 			// Generate the new world.
 			worldGenerate();
 
+			// Ask to continue the game.
+			System.out.print("Vols passar a la seguent generació?{S/N}");
+			question = scan.next();
+
+			if (question.equals("N") || question.equals("n")) {
+
+				bucleJoc = false;
+
+			}
 		}
 
 	}
