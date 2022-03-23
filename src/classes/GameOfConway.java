@@ -1,5 +1,6 @@
 package classes;
 
+//Import Scanner.
 import java.util.Scanner;
 
 //Game of Conway class.
