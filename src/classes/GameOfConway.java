@@ -107,10 +107,363 @@ public class GameOfConway {
 				if (world[count][metaCount] == '·') {
 
 					// Filter the rules of alive cell.
-					// Filter the rules of dead cell.
 					/*
 					 * Near 3 live cells then respawn the cell.
 					 */
+					// Filter the first line.
+					if (count == 0) {
+
+						// Filter the first column.
+						if (metaCount == 0) {
+
+							// Serch the cells near.
+							if (world[(count + 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[count][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+
+							// Compare the near cells.
+							if (!(sum == worldRules[0] || sum == worldRules[1])) {
+
+								newWorld[count][metaCount] = ' ';
+
+							}
+
+						} else if (metaCount == WIDTH) {
+
+							// Serch the cells near.
+							if (world[(count + 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[count][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+
+							// Compare the near cells.
+							if (!(sum == worldRules[0] || sum == worldRules[1])) {
+
+								newWorld[count][metaCount] = ' ';
+
+							}
+
+						} else {
+
+							// Serch the cells near.
+							if (world[(count + 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[count][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[count][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+
+							// Compare the near cells.
+							if (!(sum == worldRules[0] || sum == worldRules[1])) {
+
+								newWorld[count][metaCount] = ' ';
+
+							}
+
+						}
+
+					} else if (count > 0 && count < HEIGHT) {
+
+						if (metaCount == 0) {
+
+							// Serch the cells near.
+							if (world[(count - 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[count][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count - 1)][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+
+							// Compare the near cells.
+							if (!(sum == worldRules[0] || sum == worldRules[1])) {
+
+								newWorld[count][metaCount] = ' ';
+
+							}
+
+						} else if (metaCount == WIDTH) {
+
+							// Serch the cells near.
+							if (world[(count - 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[count][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count - 1)][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+
+							// Compare the near cells.
+							if (!(sum == worldRules[0] || sum == worldRules[1])) {
+
+								newWorld[count][metaCount] = ' ';
+
+							}
+
+						} else {
+
+							// Serch the cells near.
+							if (world[(count - 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[count][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[count][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count - 1)][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count - 1)][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count + 1)][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+
+							// Compare the near cells.
+							if (!(sum == worldRules[0] || sum == worldRules[1])) {
+
+								newWorld[count][metaCount] = ' ';
+
+							}
+
+						}
+
+					} else if (count == HEIGHT) {
+
+						if (metaCount == 0) {
+
+							// Serch the cells near.
+							if (world[(count - 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[count][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count - 1)][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+
+							// Compare the near cells.
+							if (!(sum == worldRules[0] || sum == worldRules[1])) {
+
+								newWorld[count][metaCount] = ' ';
+
+							}
+
+						} else if (metaCount == WIDTH) {
+
+							// Serch the cells near.
+							if (world[(count - 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[count][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count - 1)][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+
+							// Compare the near cells.
+							if (!(sum == worldRules[0] || sum == worldRules[1])) {
+
+								newWorld[count][metaCount] = ' ';
+
+							}
+
+						} else {
+
+							// Serch the cells near.
+							if (world[(count - 1)][metaCount] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[count][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[count][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count - 1)][(metaCount - 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+							if (world[(count - 1)][(metaCount + 1)] == '·') {
+
+								// Then...
+								sum++;
+
+							}
+
+							// Compare the near cells.
+							if (!(sum == worldRules[0] || sum == worldRules[1])) {
+
+								newWorld[count][metaCount] = ' ';
+
+							}
+
+						}
+
+					}
 
 				} else {
 
