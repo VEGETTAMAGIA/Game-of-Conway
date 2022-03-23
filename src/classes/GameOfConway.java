@@ -2,6 +2,7 @@ package classes;
 
 import java.util.Scanner;
 
+//Game of conway class.
 public class GameOfConway {
 
 	// Variables.
