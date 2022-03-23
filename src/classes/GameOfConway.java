@@ -104,6 +104,10 @@ public class GameOfConway {
 				if (world[count][metaCount] == '·') {
 
 					// Filter the rules of alive cell.
+					// Filter the rules of dead cell.
+					/*
+					 * Near 3 live cells then respawn the cell.
+					 */
 
 				} else {
 
