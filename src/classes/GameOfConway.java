@@ -92,7 +92,7 @@ public class GameOfConway {
 	private void worldGenerate() {
 
 		// Inicialitze variables.
-		int newWorld[][] = new int[HEIGHT][WIDTH];
+		char[][] newWorld = new char[HEIGHT][WIDTH];
 		int sum;
 
 		// Generate.
@@ -831,6 +831,8 @@ public class GameOfConway {
 			}
 
 		}
+		
+		world = newWorld;
 
 	}
 
