@@ -40,6 +40,7 @@ public class GameOfConway {
 	// WorldPrinting function.
 	private void worldPrint() {
 
+		// Print title.
 		System.out.print("\nWorld!\n");
 
 		// Print.
