@@ -359,7 +359,7 @@ public class GameOfConway {
 
 	}
 
-	// Cell position function
+	// Cell position function.
 	public void cellposition(String option) {
 
 		boolean isANumber;
@@ -496,6 +496,7 @@ public class GameOfConway {
 
 				break;
 
+			// Put the world size.
 			case "1":
 				for (count = 0; count < 20; count++) {
 
@@ -559,6 +560,7 @@ public class GameOfConway {
 
 				break;
 
+			// Change the world rules.
 			case "2":
 
 				for (count = 0; count < 20; count++) {
@@ -649,6 +651,7 @@ public class GameOfConway {
 
 				break;
 
+			// Put the cells in to the world.
 			case "3":
 
 				// Start cells Loop.
@@ -677,16 +680,19 @@ public class GameOfConway {
 
 				break;
 
+			// Start the game,
 			case "4":
 				game();
 				break;
 
+			// Close the menu.
 			case "5":
 				System.out.print("\nBye!\n");
 				menuLoop = false;
 
 				break;
 
+			// Another caracter.
 			default:
 				System.out.print("\nCaracter no valid\n\n");
 
