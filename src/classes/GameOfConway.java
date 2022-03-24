@@ -8,8 +8,8 @@ public class GameOfConway {
 
 	// Variables.
 	Scanner scan = new Scanner(System.in);
-	int HEIGHT = 10;
-	int WIDTH = 10;
+	int HEIGHT = 100;
+	int WIDTH = 100;
 	char world[][] = new char[HEIGHT][WIDTH];
 	int count;
 	String name = "Player101";
@@ -31,6 +31,21 @@ public class GameOfConway {
 
 	}
 
+	// World Inicialize function.
+	private void worldInicialize() {
+
+		for (count = 0; count < HEIGHT; count++) {
+
+			for (int metaCount = 0; metaCount < WIDTH; metaCount++) {
+
+				world[count][metaCount] = ' ';
+
+			}
+
+		}
+
+	}
+
 	// WorldPrinting function.
 	private void worldPrint() {
 
@@ -38,7 +53,7 @@ public class GameOfConway {
 		System.out.print("\n" + name + " món!\n");
 
 		// Print.
-		for (int count = 0; count < HEIGHT; count++) {
+		for (count = 0; count < HEIGHT; count++) {
 
 			for (int metaCount = 0; metaCount < WIDTH; metaCount++) {
 
@@ -385,6 +400,8 @@ public class GameOfConway {
 
 		}
 
+		worldPrint();
+
 	}
 
 	// Menu function.
@@ -397,13 +414,15 @@ public class GameOfConway {
 		boolean isANumber = false;
 		String a1, a2, b;
 		boolean cellsloop = true;
+		boolean worldInicialize = false;
+		boolean cellsInicialize = false;
 
 		// Start Menu.
 		while (menuLoop) {
 
 			// Question, do.
 			System.out.print(
-					"Que vols fer?\n[0] - - -> {Posar nom}\n[1] - - -> {Posar tamany al món}\n[2] - - -> {Canviar regles}\n[3] - - -> {Col·locar cèl·lules}\n[4] - - -> {Jugar}\n[5] - - > {Sortir}\n>> ");
+					"\nQue vols fer?\n[0] - - -> {Posar nom}\n[1] - - -> {Posar tamany al món}\n[2] - - -> {Canviar regles}\n[3] - - -> {Col·locar cèl·lules}\n[4] - - -> {Jugar}\n[5] - - > {Sortir}\n>> ");
 			option = scan.next();
 
 			// Filter the result.
@@ -418,63 +437,76 @@ public class GameOfConway {
 
 			// Put the world size.
 			case "1":
-				for (count = 0; count < 20; count++) {
+				if (!cellsInicialize) {
 
-					// Ask for width.
-					System.out.print("\nQuina vols que sigui la allargada del món?(Eix X)?\n>> ");
-					x = scan.next();
+					for (count = 0; count < 20; count++) {
 
-					isANumber = isANumber(x);
+						// Ask for width.
+						System.out.print("\nQuina vols que sigui la allargada del món (Maxim 100)?(Eix X)?\n>> ");
+						x = scan.next();
 
-					if (isANumber) {
+						isANumber = isANumber(x);
 
-						WIDTH = Integer.parseInt(x);
+						if (isANumber) {
 
-						System.out.print("\nValor assignat, el món té [" + WIDTH + "] caselles de llargada\n");
-						count = 998;
+							WIDTH = Integer.parseInt(x);
 
-					} else {
+							System.out.print("\nValor assignat, el món té [" + WIDTH + "] caselles de llargada\n");
+							count = 998;
 
-						System.out.print("\nSiusplau entra un valor valid!!\n");
+						} else {
 
-					}
+							System.out.print("\nSiusplau entra un valor valid!!\n");
 
-				}
-
-				if (count != 999) {
-
-					System.out.print("\nEl valor sa assignat a 10");
-					WIDTH = 10;
-
-				}
-
-				for (count = 0; count < 20; count++) {
-
-					// Ask for width.
-					System.out.print("\nQuina vols que sigui la altura del món?(Eix Y)?\n>> ");
-					x = scan.next();
-
-					isANumber = isANumber(x);
-
-					if (isANumber) {
-
-						HEIGHT = Integer.parseInt(x);
-
-						System.out.print("\nValor assignat, el món té [" + HEIGHT + "] caselles de llargada\n");
-						count = 998;
-
-					} else {
-
-						System.out.print("\nSiusplau entra un valor valid!!\n");
+						}
 
 					}
 
-				}
+					if (count != 999) {
 
-				if (count != 999) {
+						System.out.print("\nEl valor sa assignat a 10");
+						WIDTH = 10;
 
-					System.out.print("\nEl valor sa assignat a 10");
-					HEIGHT = 10;
+					}
+
+					for (count = 0; count < 20; count++) {
+
+						// Ask for width.
+						System.out.print("\nQuina vols que sigui la altura del món (Maxim 100)?(Eix Y)?\n>> ");
+						x = scan.next();
+
+						isANumber = isANumber(x);
+
+						if (isANumber) {
+
+							HEIGHT = Integer.parseInt(x);
+
+							System.out.print("\nValor assignat, el món té [" + HEIGHT + "] caselles de llargada\n");
+							count = 998;
+
+						} else {
+
+							System.out.print("\nSiusplau entra un valor valid!!\n");
+
+						}
+
+					}
+
+					if (count != 999) {
+
+						System.out.print("\nEl valor sa assignat a 10");
+						HEIGHT = 10;
+
+					}
+
+					worldInicialize();
+					worldPrint();
+					worldInicialize = true;
+
+				} else {
+
+					System.out.print(
+							"\nJa s'han col·locat les cèl·lules, després d'acabar la proxima partida podras tornar a canviar aquests valors\n");
 
 				}
 
@@ -574,8 +606,10 @@ public class GameOfConway {
 			// Put the cells in to the world.
 			case "3":
 
+				cellsloop = true;
+
 				// Start cells Loop.
-				while (cellsloop) {
+				while (cellsloop && worldInicialize) {
 
 					System.out.print(
 							"\nVols posar les cèl·lules de forma:\n[0] - - -> {Manual}\n[1] - - -> {Automatica}\n>> ");
@@ -585,13 +619,18 @@ public class GameOfConway {
 
 					case "0":
 
+						worldInicialize();
 						cellposition(option);
 						cellsloop = false;
+						cellsInicialize = true;
 						break;
 
 					case "1":
+
+						worldInicialize();
 						cellposition(option);
 						cellsloop = false;
+						cellsInicialize = true;
 						break;
 
 					default:
@@ -602,11 +641,26 @@ public class GameOfConway {
 
 				}
 
+				if (!worldInicialize) {
+
+					System.out.print("\nPrimer inicialitza el món siusplau\n");
+
+				}
+
 				break;
 
 			// Start the game,
 			case "4":
-				game();
+				if (worldInicialize) {
+
+					game();
+
+					worldInicialize();
+					cellsloop = true;
+					worldInicialize = false;
+					cellsInicialize = false;
+
+				}
 				break;
 
 			// Close the menu.
