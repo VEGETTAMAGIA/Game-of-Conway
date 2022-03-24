@@ -249,9 +249,11 @@ public class GameOfConway {
 	// Cell position function.
 	public void cellposition(String option) {
 
+		// Inicialize number.
 		boolean isANumber;
 		String pH, pW;
 		int H, W;
+		int coloniaNumber = 5;
 
 		for (count = 0; count <= 5; count++) {
 
@@ -337,6 +339,7 @@ public class GameOfConway {
 
 						System.out.print("\nLa cantidad de colonies s'ha assignat a [" + colonia + "]\n");
 						count = 998;
+						coloniaNumber = Integer.parseInt(colonia);
 
 					} else {
 
@@ -346,23 +349,33 @@ public class GameOfConway {
 
 				}
 
-				H = (int) (Math.random() * HEIGHT);
+				if (count != 999) {
 
-				W = (int) (Math.random() * HEIGHT);
+					System.out.print("\nEl valor sa assignat a 5");
 
-				if ((W > WIDTH || W < 0)) {
+				}
 
-					count--;
+				for (count = 0; count < (coloniaNumber * 5); count++) {
 
-				} else {
+					H = (int) (Math.random() * HEIGHT);
 
-					if (world[H][W] == '·') {
+					W = (int) (Math.random() * WIDTH);
+
+					if ((W > WIDTH || W < 0)) {
 
 						count--;
 
 					} else {
 
-						world[H][W] = '·';
+						if (world[H][W] == '·') {
+
+							count--;
+
+						} else {
+
+							world[H][W] = '·';
+
+						}
 
 					}
 
