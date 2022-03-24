@@ -521,7 +521,7 @@ public class GameOfConway {
 							}
 							if (world[(count + 1)][(metaCount - 1)] == '·') {
 
-								// Then...
+								// Then..
 								sum++;
 
 							}
