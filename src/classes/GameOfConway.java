@@ -26,10 +26,6 @@ public class GameOfConway {
 	// Principal function.
 	public void principal() {
 
-		// Variables.
-		boolean gameLoop = false;
-		String name;
-
 		// Menu.
 		menu();
 
@@ -328,6 +324,27 @@ public class GameOfConway {
 				}
 
 			} else {
+
+				for (count = 0; count < 20; count++) {
+
+					System.out.print("\nCuantes colonies vols posar? (Cada colonia consta de 5 cellules):\n>> ");
+
+					String colonia = scan.next();
+
+					isANumber = isANumber(colonia);
+
+					if (isANumber) {
+
+						System.out.print("\nLa cantidad de colonies s'ha assignat a [" + colonia + "]\n");
+						count = 998;
+
+					} else {
+
+						System.out.print("\nSiusplau entra un valor valid!!\n");
+
+					}
+
+				}
 
 				H = (int) (Math.random() * HEIGHT);
 
