@@ -12,6 +12,7 @@ public class GameOfConway {
 	int WIDTH = 10;
 	char world[][] = new char[HEIGHT][WIDTH];
 	int count;
+	String name = "Player101";
 	int worldRules[] = { 2, 3, 3 };
 
 	// Main function.
@@ -32,16 +33,13 @@ public class GameOfConway {
 		// Menu.
 		menu();
 
-		// Print World.
-		worldPrint();
-
 	}
 
 	// WorldPrinting function.
 	private void worldPrint() {
 
 		// Print title.
-		System.out.print("\nWorld!\n");
+		System.out.print("\n" + name + " món!\n");
 
 		// Print.
 		for (int count = 0; count < HEIGHT; count++) {
@@ -103,735 +101,122 @@ public class GameOfConway {
 				// Sum = 0;
 				sum = 0;
 
-				// Filter if the cell is alive or dead.
 				if (world[count][metaCount] == '·') {
-
-					// Filter the rules of alive cell.
-					/*
-					 * Near 3 live cells then respawn the cell.
-					 */
-					// Filter the first line.
-					if (count == 0) {
-
-						// Filter the first column.
-						if (metaCount == 0) {
-
-							// Serch the cells near.
-							if (world[(count + 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (!(sum == worldRules[0] || sum == worldRules[1])) {
-
-								newWorld[count][metaCount] = ' ';
-
-							}
-
-						} else if (metaCount == WIDTH) {
-
-							// Serch the cells near.
-							if (world[(count + 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (!(sum == worldRules[0] || sum == worldRules[1])) {
-
-								newWorld[count][metaCount] = ' ';
-
-							}
-
-						} else {
-
-							// Serch the cells near.
-							if (world[(count + 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (!(sum == worldRules[0] || sum == worldRules[1])) {
-
-								newWorld[count][metaCount] = ' ';
-
-							}
-
+					sum = 0;
+					if (HEIGHT > (count + 1)) {
+						if (world[count + 1][metaCount] == '·') {
+							sum++;
 						}
+					}
 
-					} else if (count > 0 && count < HEIGHT) {
-
-						if (metaCount == 0) {
-
-							// Serch the cells near.
-							if (world[(count - 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count - 1)][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (!(sum == worldRules[0] || sum == worldRules[1])) {
-
-								newWorld[count][metaCount] = ' ';
-
-							}
-
-						} else if (metaCount == WIDTH) {
-
-							// Serch the cells near.
-							if (world[(count - 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count - 1)][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (!(sum == worldRules[0] || sum == worldRules[1])) {
-
-								newWorld[count][metaCount] = ' ';
-
-							}
-
-						} else {
-
-							// Serch the cells near.
-							if (world[(count - 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count - 1)][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count - 1)][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (!(sum == worldRules[0] || sum == worldRules[1])) {
-
-								newWorld[count][metaCount] = ' ';
-
-							}
-
+					if (HEIGHT > (count + 1) && WIDTH > (metaCount + 1)) {
+						if (world[count + 1][metaCount + 1] == '·') {
+							sum++;
 						}
+					}
 
-					} else if (count == HEIGHT) {
-
-						if (metaCount == 0) {
-
-							// Serch the cells near.
-							if (world[(count - 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count - 1)][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (!(sum == worldRules[0] || sum == worldRules[1])) {
-
-								newWorld[count][metaCount] = ' ';
-
-							}
-
-						} else if (metaCount == WIDTH) {
-
-							// Serch the cells near.
-							if (world[(count - 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count - 1)][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (!(sum == worldRules[0] || sum == worldRules[1])) {
-
-								newWorld[count][metaCount] = ' ';
-
-							}
-
-						} else {
-
-							// Serch the cells near.
-							if (world[(count - 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count - 1)][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count - 1)][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (!(sum == worldRules[0] || sum == worldRules[1])) {
-
-								newWorld[count][metaCount] = ' ';
-
-							}
-
+					if (WIDTH > (metaCount + 1)) {
+						if (world[count][metaCount + 1] == '·') {
+							sum++;
 						}
+					}
 
+					if (0 <= (count - 1) && WIDTH > (metaCount + 1)) {
+						if (world[count - 1][metaCount + 1] == '·') {
+							sum++;
+						}
+					}
+
+					if (0 <= (count - 1)) {
+						if (world[count - 1][metaCount] == '·') {
+							sum++;
+						}
+					}
+
+					if (0 <= (count - 1) && 0 <= (metaCount - 1)) {
+						if (world[count - 1][metaCount - 1] == '·') {
+							sum++;
+						}
+					}
+
+					if (0 <= (metaCount - 1)) {
+						if (world[count][metaCount - 1] == '·') {
+							sum++;
+						}
+					}
+
+					if (HEIGHT > (count + 1) && 0 <= (metaCount - 1)) {
+						if (world[count + 1][metaCount - 1] == '·') {
+							sum++;
+						}
+					}
+
+					if (sum >= worldRules[0] && sum <= worldRules[1]) {
+						newWorld[count][metaCount] = '·';
+					} else {
+						newWorld[count][metaCount] = ' ';
 					}
 
 				} else {
-
-					// Filter the rules of dead cell.
-					/*
-					 * Near 3 live cells then respawn the cell.
-					 */
-					// Filter the first line.
-					if (count == 0) {
-
-						// Filter the first column.
-						if (metaCount == 0) {
-
-							// Serch the cells near.
-							if (world[(count + 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (sum == worldRules[2]) {
-
-								newWorld[count][metaCount] = '·';
-
-							}
-
-						} else if (metaCount == WIDTH) {
-
-							// Serch the cells near.
-							if (world[(count + 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][(metaCount - 1)] == '·') {
-
-								// Then..
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (sum == worldRules[2]) {
-
-								newWorld[count][metaCount] = '·';
-
-							}
-
-						} else {
-
-							// Serch the cells near.
-							if (world[(count + 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (sum == worldRules[2]) {
-
-								newWorld[count][metaCount] = '·';
-
-							}
-
+					sum = 0;
+					if (HEIGHT > (count + 1)) {
+						if (world[count + 1][metaCount] == '·') {
+							sum++;
 						}
-
-					} else if (count > 0 && count < HEIGHT) {
-
-						if (metaCount == 0) {
-
-							// Serch the cells near.
-							if (world[(count - 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count - 1)][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (sum == worldRules[2]) {
-
-								newWorld[count][metaCount] = '·';
-
-							}
-
-						} else if (metaCount == WIDTH) {
-
-							// Serch the cells near.
-							if (world[(count - 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count - 1)][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (sum == worldRules[2]) {
-
-								newWorld[count][metaCount] = '·';
-
-							}
-
-						} else {
-
-							// Serch the cells near.
-							if (world[(count - 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count - 1)][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count - 1)][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count + 1)][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (sum == worldRules[2]) {
-
-								newWorld[count][metaCount] = '·';
-
-							}
-
-						}
-
-					} else if (count == HEIGHT) {
-
-						if (metaCount == 0) {
-
-							// Serch the cells near.
-							if (world[(count - 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count - 1)][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (sum == worldRules[2]) {
-
-								newWorld[count][metaCount] = '·';
-
-							}
-
-						} else if (metaCount == WIDTH) {
-
-							// Serch the cells near.
-							if (world[(count - 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count - 1)][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (sum == worldRules[2]) {
-
-								newWorld[count][metaCount] = '·';
-
-							}
-
-						} else {
-
-							// Serch the cells near.
-							if (world[(count - 1)][metaCount] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[count][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count - 1)][(metaCount - 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-							if (world[(count - 1)][(metaCount + 1)] == '·') {
-
-								// Then...
-								sum++;
-
-							}
-
-							// Compare the near cells.
-							if (sum == worldRules[2]) {
-
-								newWorld[count][metaCount] = '·';
-
-							}
-
-						}
-
 					}
 
-				}
+					if (HEIGHT > (count + 1) && WIDTH > (metaCount + 1)) {
+						if (world[count + 1][metaCount + 1] == '·') {
+							sum++;
+						}
+					}
 
+					if (WIDTH > (metaCount + 1)) {
+						if (world[count][metaCount + 1] == '·') {
+							sum++;
+						}
+					}
+
+					if (0 <= (count - 1) && WIDTH > (metaCount + 1)) {
+						if (world[count - 1][metaCount + 1] == '·') {
+							sum++;
+						}
+					}
+
+					if (0 <= (count - 1)) {
+						if (world[count - 1][metaCount] == '·') {
+							sum++;
+						}
+					}
+
+					if (0 <= (count - 1) && 0 <= (metaCount - 1)) {
+						if (world[count - 1][metaCount - 1] == '·') {
+							sum++;
+						}
+					}
+
+					if (0 <= (metaCount - 1)) {
+						if (world[count][metaCount - 1] == '·') {
+							sum++;
+						}
+					}
+
+					if (HEIGHT > (count + 1) && 0 <= (metaCount - 1)) {
+						if (world[count + 1][metaCount - 1] == '·') {
+							sum++;
+						}
+					}
+
+					if (sum == worldRules[2]) {
+						newWorld[count][metaCount] = '·';
+					} else {
+						newWorld[count][metaCount] = ' ';
+					}
+				}
 			}
 
 		}
-		
+
 		world = newWorld;
 
 	}
@@ -877,10 +262,10 @@ public class GameOfConway {
 			System.out.print("\n/*Forma Manual*/\n");
 			worldPrint();
 
-			if (option == "0") {
+			if (option.equalsIgnoreCase("0")) {
 
-				System.out.print(
-						"\nPosa un valor per la altura on vols posar la cèl·lula numero[" + (count + 1) + "]:\n>> ");
+				System.out.print("\nPosa un valor per la altura on vols posar la cèl·lula numero[" + (count + 1)
+						+ "] [0] - [" + (HEIGHT - 1) + "]:\n>> ");
 				pH = scan.next();
 
 				isANumber = isANumber(pH);
@@ -894,7 +279,7 @@ public class GameOfConway {
 
 					H = Integer.parseInt(pH);
 
-					if ((H > HEIGHT || H < 0)) {
+					if ((H > (HEIGHT - 1) || H < 0)) {
 
 						System.out.print("\nEl valor no forma part del array\n");
 						count--;
@@ -902,7 +287,7 @@ public class GameOfConway {
 					} else {
 
 						System.out.print("\nPosa un valor per la llargada on vols posar la cèl·lula numero["
-								+ (count + 1) + "]:\n>> ");
+								+ (count + 1) + "] [0] - [" + (WIDTH - 1) + "]:\n>> ");
 						pW = scan.next();
 
 						isANumber = isANumber(pW);
@@ -916,7 +301,7 @@ public class GameOfConway {
 
 							W = Integer.parseInt(pW);
 
-							if ((W > WIDTH || W < 0)) {
+							if ((W > (WIDTH - 1) || W < 0)) {
 
 								System.out.print("\nEl valor no forma part del array\n");
 								count--;
@@ -930,7 +315,7 @@ public class GameOfConway {
 
 								} else {
 
-									world[(H - 1)][(W - 1)] = '·';
+									world[H][W] = '·';
 
 								}
 
@@ -978,7 +363,6 @@ public class GameOfConway {
 		// Variables.
 		boolean menuLoop = true;
 		String option;
-		String name = "Player101";
 		String x;
 		boolean isANumber = false;
 		String a1, a2, b;
@@ -1178,6 +562,10 @@ public class GameOfConway {
 					case "1":
 						cellposition(option);
 						cellsloop = false;
+						break;
+
+					default:
+						System.out.print("\nCaracter no valid!\n");
 						break;
 
 					}
