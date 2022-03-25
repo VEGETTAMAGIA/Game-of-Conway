@@ -426,64 +426,114 @@ public class GameOfConway {
 		int H, W;
 		int coloniaNumber = 5;
 
+		// Bucle to put the cells.
 		for (count = 0; count <= 5; count++) {
 
+			// Print the world and the title.
 			System.out.print("\n/*Forma Manual*/\n");
 			worldPrint();
 
+			// Manual option.
 			if (option.equalsIgnoreCase("0")) {
 
+				// Set a position for the HEIGHT.
+				// Ask the value.
 				System.out.print("\nPosa un valor per la altura on vols posar la cèl·lula numero[" + (count + 1)
 						+ "] [0] - [" + (HEIGHT - 1) + "]:\n>> ");
+
+				// Set the value.
 				pH = scan.next();
 
+				// Ask if pH is a number.
 				isANumber = isANumber(pH);
 
+				// The value is not number.
 				if (!isANumber) {
 
+					// Error message.
 					System.out.print("\nSiusplau posa un numero correcte!\n");
+					// Set count -1.
 					count--;
 
-				} else {
+				}
 
+				// The value is a number.
+				else {
+
+					// Set H like the value of the String pH to integer.
 					H = Integer.parseInt(pH);
 
+					// Compare if the value H is higher than (HEIGHT - 1) or less than 0.
 					if ((H > (HEIGHT - 1) || H < 0)) {
 
+						// Error message.
 						System.out.print("\nEl valor no forma part del array\n");
+
+						// Set count -1.
 						count--;
 
-					} else {
+					}
 
+					// Compare if the value H is less than (HIGHT - 1) and higher than 0.
+					else {
+
+						// Set a position for the WIDTH.
+						// Ask the value.
 						System.out.print("\nPosa un valor per la llargada on vols posar la cèl·lula numero["
 								+ (count + 1) + "] [0] - [" + (WIDTH - 1) + "]:\n>> ");
+
+						// Set the value.
 						pW = scan.next();
 
+						// Ask if pW is a number.
 						isANumber = isANumber(pW);
 
+						// The value is not number.
 						if (!isANumber) {
 
+							// Error message.
 							System.out.print("\nSiusplau posa un numero correccte!\n");
+
+							// Set count -1.
 							count--;
 
-						} else {
+						}
 
+						// The value is number.
+						else {
+
+							// Set W like the value of the String pW to integer.
 							W = Integer.parseInt(pW);
 
+							// Compare if the value W is higher than (WIDTH - 1) or less than 0.
 							if ((W > (WIDTH - 1) || W < 0)) {
 
+								// Error message.
 								System.out.print("\nEl valor no forma part del array\n");
+
+								// Set count -1.
 								count--;
 
-							} else {
+							}
 
+							// Compare if the value W is less than (WIDTH - 1) and higher than 0.
+							else {
+
+								// Look if the position asked have a alive cell.
 								if (world[H][W] == '·') {
 
+									// Error message.
 									System.out.print("\nJa hi ha una cèl·lula colocada en aquesta posició!\n");
+
+									// Set count -1.
 									count--;
 
-								} else {
+								}
 
+								// Look if the position asked have a dead cell.
+								else {
+
+									// Set the position asked with a alive cell.
 									world[H][W] = '·';
 
 								}
@@ -496,54 +546,89 @@ public class GameOfConway {
 
 				}
 
-			} else {
+			}
 
+			// Automatic option.
+			else {
+
+				// Ask the colonies quantity.
+				// 20 opportunities.
 				for (count = 0; count < 20; count++) {
 
+					// Ask the quantity.
 					System.out.print("\nCuantes colonies vols posar? (Cada colonia consta de 5 cellules):\n>> ");
 
+					// Set the quantity to a variable.
 					String colonia = scan.next();
 
+					// Ask if colonia is a number.
 					isANumber = isANumber(colonia);
 
+					// Filter if colonia is a number.
 					if (isANumber) {
 
+						// Message all good.
 						System.out.print("\nLa cantidad de colonies s'ha assignat a [" + colonia + "]\n");
+
+						// Set count as 998, to cancell the loop.
 						count = 998;
+
+						// Set varibale coloniaNumber like variable colonia.
 						coloniaNumber = Integer.parseInt(colonia);
 
-					} else {
+					}
 
+					// Filter if colonia is not a number.
+					else {
+
+						// Error message.
 						System.out.print("\nSiusplau entra un valor valid!!\n");
 
 					}
 
 				}
 
+				// Filter if count have another value than 999.
 				if (count != 999) {
 
+					// Auto assigned colonies message.
 					System.out.print("\nEl valor sa assignat a 5");
 
 				}
 
+				// Assign colonies automatically.
+				// Loop to assign colonies.
 				for (count = 0; count < (coloniaNumber * 5); count++) {
 
+					// Value of H random.
 					H = (int) (Math.random() * HEIGHT);
 
+					// Value of W random.
 					W = (int) (Math.random() * WIDTH);
 
+					// Filter if the value of W is higher than WIDTH and samller than 0.
 					if ((W > WIDTH || W < 0)) {
 
+						// Set count -1.
 						count--;
 
-					} else {
+					}
 
+					// Filter if the value of W is smaller than WIDTH and higher than 0.
+					else {
+
+						// Filter if the position have a live cell
 						if (world[H][W] == '·') {
 
+							// Set count -1.
 							count--;
 
-						} else {
+						}
 
+						// Filter if the position have a dead cell.
+						else {
+
+							// Set the position with a alive cell.
 							world[H][W] = '·';
 
 						}
@@ -556,6 +641,7 @@ public class GameOfConway {
 
 		}
 
+		// Print the world.
 		worldPrint();
 
 	}
