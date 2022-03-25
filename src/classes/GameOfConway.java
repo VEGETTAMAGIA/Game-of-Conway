@@ -433,6 +433,14 @@ public class GameOfConway {
 				System.out.print("\nPosa el teu nom:\n>> ");
 				name = scan.next();
 
+				isANumber = isANumber(name);
+
+				if (isANumber) {
+
+					name = "MathLover";
+
+				}
+
 				break;
 
 			// Put the world size.
