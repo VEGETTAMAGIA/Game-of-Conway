@@ -406,8 +406,10 @@ public class GameOfConway {
 			System.out.print("Vols passar a la seguent generació?{S/N}");
 			question = scan.next();
 
+			// Filter to end the game.
 			if (question.equals("N") || question.equals("n")) {
 
+				// Set bucleJoc as false.
 				bucleJoc = false;
 
 			}
