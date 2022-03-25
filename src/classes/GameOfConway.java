@@ -439,6 +439,10 @@ public class GameOfConway {
 
 					name = "MathLover";
 
+				} else if (name.equals("carles") || name.equals("Cristina")) {
+
+					name = "Professor";
+
 				}
 
 				break;
