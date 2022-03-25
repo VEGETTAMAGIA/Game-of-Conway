@@ -34,10 +34,13 @@ public class GameOfConway {
 	// World Inicialize function.
 	private void worldInicialize() {
 
+		// Y-AXIS.
 		for (count = 0; count < HEIGHT; count++) {
 
+			// X-AXIS.
 			for (int metaCount = 0; metaCount < WIDTH; metaCount++) {
 
+				// Set this position the value ' '.
 				world[count][metaCount] = ' ';
 
 			}
