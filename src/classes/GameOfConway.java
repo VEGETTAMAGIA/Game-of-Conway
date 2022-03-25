@@ -132,14 +132,17 @@ public class GameOfConway {
 				 * 
 				 * 1. If cell is near to worldRules[0] - worldRules[1] they keep alive.
 				 * 
-				 * 2. If cell is near to 4 or more cells they die.
+				 * 2. If cell is near to (worldRules[1] + 1) or more cells they die.
 				 * 
-				 * 3. If cell is near to 1 or less cells they die.
+				 * 3. If cell is near to (worldRules[0] - 1) or less cells they die.
 				 * 
 				 */
 				if (world[count][metaCount] == '·') {
 
+					// Look if the position is possible.
 					if (HEIGHT > (count + 1)) {
+
+						// Look for alive cells next the actual cell.
 						if (world[count + 1][metaCount] == '·') {
 
 							// Sum 1...
@@ -148,7 +151,10 @@ public class GameOfConway {
 						}
 					}
 
+					// Look if the position is possible.
 					if (HEIGHT > (count + 1) && WIDTH > (metaCount + 1)) {
+
+						// Look for alive cells next the actual cell.
 						if (world[count + 1][metaCount + 1] == '·') {
 
 							// Sum 1...
@@ -157,7 +163,10 @@ public class GameOfConway {
 						}
 					}
 
+					// Look if the position is possible.
 					if (WIDTH > (metaCount + 1)) {
+
+						// Look for alive cells next the actual cell.
 						if (world[count][metaCount + 1] == '·') {
 
 							// Sum 1...
@@ -166,7 +175,10 @@ public class GameOfConway {
 						}
 					}
 
+					// Look if the position is possible.
 					if (0 <= (count - 1) && WIDTH > (metaCount + 1)) {
+
+						// Look for alive cells next the actual cell.
 						if (world[count - 1][metaCount + 1] == '·') {
 
 							// Sum 1...
@@ -175,7 +187,10 @@ public class GameOfConway {
 						}
 					}
 
+					// Look if the position is possible.
 					if (0 <= (count - 1)) {
+
+						// Look for alive cells next the actual cell.
 						if (world[count - 1][metaCount] == '·') {
 
 							// Sum 1...
@@ -184,7 +199,10 @@ public class GameOfConway {
 						}
 					}
 
+					// Look if the position is possible.
 					if (0 <= (count - 1) && 0 <= (metaCount - 1)) {
+
+						// Look for alive cells next the actual cell.
 						if (world[count - 1][metaCount - 1] == '·') {
 
 							// Sum 1...
@@ -193,7 +211,10 @@ public class GameOfConway {
 						}
 					}
 
+					// Look if the position is possible.
 					if (0 <= (metaCount - 1)) {
+
+						// Look for alive cells next the actual cell.
 						if (world[count][metaCount - 1] == '·') {
 
 							// Sum 1...
@@ -202,7 +223,10 @@ public class GameOfConway {
 						}
 					}
 
+					// Look if the position is possible.
 					if (HEIGHT > (count + 1) && 0 <= (metaCount - 1)) {
+
+						// Look for alive cells next the actual cell.
 						if (world[count + 1][metaCount - 1] == '·') {
 
 							// Sum 1...
@@ -211,10 +235,22 @@ public class GameOfConway {
 						}
 					}
 
+					// Filter if the interval of worldRules[0] worldRules[1] to revive cells are
+					// fulfilled.
 					if (sum >= worldRules[0] && sum <= worldRules[1]) {
+
+						// Set this position of the world to '·'.
 						newWorld[count][metaCount] = '·';
-					} else {
+
+					}
+
+					// Filter if the interval of worldRules[0] worldRules[1] to revive cells aren't
+					// fulfilled.
+					else {
+
+						// Set this position of the world to ' '.
 						newWorld[count][metaCount] = ' ';
+
 					}
 
 				}
@@ -229,7 +265,10 @@ public class GameOfConway {
 				 */
 				else {
 
+					// Look if the position is possible.
 					if (HEIGHT > (count + 1)) {
+
+						// Look for alive cells next the actual cell.
 						if (world[count + 1][metaCount] == '·') {
 
 							// Sum 1...
@@ -238,7 +277,10 @@ public class GameOfConway {
 						}
 					}
 
+					// Look if the position is possible.
 					if (HEIGHT > (count + 1) && WIDTH > (metaCount + 1)) {
+
+						// Look for alive cells next the actual cell.
 						if (world[count + 1][metaCount + 1] == '·') {
 
 							// Sum 1...
@@ -247,7 +289,10 @@ public class GameOfConway {
 						}
 					}
 
+					// Look if the position is possible.
 					if (WIDTH > (metaCount + 1)) {
+
+						// Look for alive cells next the actual cell.
 						if (world[count][metaCount + 1] == '·') {
 
 							// Sum 1...
@@ -256,7 +301,10 @@ public class GameOfConway {
 						}
 					}
 
+					// Look if the position is possible.
 					if (0 <= (count - 1) && WIDTH > (metaCount + 1)) {
+
+						// Look for alive cells next the actual cell.
 						if (world[count - 1][metaCount + 1] == '·') {
 
 							// Sum 1...
@@ -265,7 +313,10 @@ public class GameOfConway {
 						}
 					}
 
+					// Look if the position is possible.
 					if (0 <= (count - 1)) {
+
+						// Look for alive cells next the actual cell.
 						if (world[count - 1][metaCount] == '·') {
 
 							// Sum 1...
@@ -274,7 +325,10 @@ public class GameOfConway {
 						}
 					}
 
+					// Look if the position is possible.
 					if (0 <= (count - 1) && 0 <= (metaCount - 1)) {
+
+						// Look for alive cells next the actual cell.
 						if (world[count - 1][metaCount - 1] == '·') {
 
 							// Sum 1...
@@ -283,7 +337,10 @@ public class GameOfConway {
 						}
 					}
 
+					// Look if the position is possible.
 					if (0 <= (metaCount - 1)) {
+
+						// Look for alive cells next the actual cell.
 						if (world[count][metaCount - 1] == '·') {
 
 							// Sum 1...
@@ -292,7 +349,10 @@ public class GameOfConway {
 						}
 					}
 
+					// Look if the position is possible.
 					if (HEIGHT > (count + 1) && 0 <= (metaCount - 1)) {
+
+						// Look for alive cells next the actual cell.
 						if (world[count + 1][metaCount - 1] == '·') {
 
 							// Sum 1...
@@ -304,14 +364,15 @@ public class GameOfConway {
 					// Filter if the worldRules[2] to revive cells are fulfilled.
 					if (sum == worldRules[2]) {
 
-						// Set this position of the worl to '·'.
+						// Set this position of the world to '·'.
 						newWorld[count][metaCount] = '·';
 
-					} // Filter if the worldRules[2] to revive cells aren't fulfilled
+					}
 
+					// Filter if the worldRules[2] to revive cells aren't fulfilled.
 					else {
 
-						// Set this position of the worl to ' '.
+						// Set this position of the world to ' '.
 						newWorld[count][metaCount] = ' ';
 
 					}
