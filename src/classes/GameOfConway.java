@@ -10,7 +10,7 @@ public class GameOfConway {
 	Scanner scan = new Scanner(System.in);
 	int HEIGHT = 100;
 	int WIDTH = 100;
-	char world[][] = new char[HEIGHT][WIDTH];
+	char world[][] = new char[100][100];
 	int count;
 	String name = "Player101";
 	int worldRules[] = { 2, 3, 3 };
@@ -450,7 +450,8 @@ public class GameOfConway {
 					for (count = 0; count < 20; count++) {
 
 						// Ask for width.
-						System.out.print("\nQuina vols que sigui la allargada del món (Maxim 100)?(Eix X)?\n>> ");
+						System.out.print(
+								"\nQuina vols que sigui la allargada del món (Maxim 100 i minim 10)(Eix X)?\n>> ");
 						x = scan.next();
 
 						isANumber = isANumber(x);
@@ -459,8 +460,16 @@ public class GameOfConway {
 
 							WIDTH = Integer.parseInt(x);
 
-							System.out.print("\nValor assignat, el món té [" + WIDTH + "] caselles de llargada\n");
-							count = 998;
+							if (WIDTH <= 100 && WIDTH >= 10) {
+
+								System.out.print("\nValor assignat, el món té [" + WIDTH + "] caselles de llargada\n");
+								count = 998;
+
+							} else {
+
+								System.out.print("\nSiusplau posa un valor entre 10 i 100\n");
+
+							}
 
 						} else {
 
@@ -480,7 +489,7 @@ public class GameOfConway {
 					for (count = 0; count < 20; count++) {
 
 						// Ask for width.
-						System.out.print("\nQuina vols que sigui la altura del món (Maxim 100)?(Eix Y)?\n>> ");
+						System.out.print("\nQuina vols que sigui la altura del món (Maxim 100)(Eix Y)?\n>> ");
 						x = scan.next();
 
 						isANumber = isANumber(x);
@@ -489,8 +498,16 @@ public class GameOfConway {
 
 							HEIGHT = Integer.parseInt(x);
 
-							System.out.print("\nValor assignat, el món té [" + HEIGHT + "] caselles de llargada\n");
-							count = 998;
+							if (HEIGHT <= 100 && HEIGHT >= 10) {
+
+								System.out.print("\nValor assignat, el món té [" + HEIGHT + "] caselles de llargada\n");
+								count = 998;
+
+							} else {
+
+								System.out.print("\nSiusplau posa un valor entre 10 i 100\n");
+
+							}
 
 						} else {
 
