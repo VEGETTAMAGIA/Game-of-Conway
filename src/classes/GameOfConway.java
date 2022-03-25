@@ -83,23 +83,28 @@ public class GameOfConway {
 		// X is a number?
 		for (int metaCount = 0; metaCount < x.length(); metaCount++) {
 
+			// Filter the value of the position metaCount to compare with a number.
 			if (x.charAt(metaCount) == '0' || x.charAt(metaCount) == '1' || x.charAt(metaCount) == '2'
 					|| x.charAt(metaCount) == '3' || x.charAt(metaCount) == '4' || x.charAt(metaCount) == '5'
 					|| x.charAt(metaCount) == '6' || x.charAt(metaCount) == '7' || x.charAt(metaCount) == '8'
 					|| x.charAt(metaCount) == '9') {
 
+				// Set isANumber as true.
 				isANumber = true;
 
 			} else {
 
+				// Set isANumber as false.
 				isANumber = false;
 
+				// close the bucle if one caracter of the String is not a number.
 				metaCount = x.length();
 
 			}
 
 		}
 
+		// Return the value of isANumber(True or false).
 		return isANumber;
 
 	}
