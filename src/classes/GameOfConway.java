@@ -56,14 +56,18 @@ public class GameOfConway {
 		System.out.print("\n" + name + " món!\n");
 
 		// Print.
+		// Y-AXIS.
 		for (count = 0; count < HEIGHT; count++) {
 
+			// X-AXIS.
 			for (int metaCount = 0; metaCount < WIDTH; metaCount++) {
 
+				// Print the value at this position and [] before and after the value.
 				System.out.print("[" + world[count][metaCount] + "]");
 
 			}
 
+			// Print a new line before the last value of the X-AXIS to Y-AXIS.
 			System.out.print("\n");
 
 		}
