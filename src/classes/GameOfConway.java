@@ -116,61 +116,98 @@ public class GameOfConway {
 		char[][] newWorld = new char[HEIGHT][WIDTH];
 		int sum;
 
-		// Generate.
+		// Generate next generation of the world.
+		// Y-AXIS.
 		for (count = 0; count < HEIGHT; count++) {
 
+			// X-AXIS.
 			for (int metaCount = 0; metaCount < WIDTH; metaCount++) {
 
 				// Sum = 0;
 				sum = 0;
 
+				// Filter if the cells is alive...
+				/*
+				 * Rules of alive cell:
+				 * 
+				 * 1. If cell is near to worldRules[0] - worldRules[1] they keep alive.
+				 * 
+				 * 2. If cell is near to 4 or more cells they die.
+				 * 
+				 * 3. If cell is near to 1 or less cells they die.
+				 * 
+				 */
 				if (world[count][metaCount] == '·') {
-					sum = 0;
+
 					if (HEIGHT > (count + 1)) {
 						if (world[count + 1][metaCount] == '·') {
+
+							// Sum 1...
 							sum++;
+
 						}
 					}
 
 					if (HEIGHT > (count + 1) && WIDTH > (metaCount + 1)) {
 						if (world[count + 1][metaCount + 1] == '·') {
+
+							// Sum 1...
 							sum++;
+
 						}
 					}
 
 					if (WIDTH > (metaCount + 1)) {
 						if (world[count][metaCount + 1] == '·') {
+
+							// Sum 1...
 							sum++;
+
 						}
 					}
 
 					if (0 <= (count - 1) && WIDTH > (metaCount + 1)) {
 						if (world[count - 1][metaCount + 1] == '·') {
+
+							// Sum 1...
 							sum++;
+
 						}
 					}
 
 					if (0 <= (count - 1)) {
 						if (world[count - 1][metaCount] == '·') {
+
+							// Sum 1...
 							sum++;
+
 						}
 					}
 
 					if (0 <= (count - 1) && 0 <= (metaCount - 1)) {
 						if (world[count - 1][metaCount - 1] == '·') {
+
+							// Sum 1...
 							sum++;
+
 						}
 					}
 
 					if (0 <= (metaCount - 1)) {
 						if (world[count][metaCount - 1] == '·') {
+
+							// Sum 1...
 							sum++;
+
 						}
 					}
 
 					if (HEIGHT > (count + 1) && 0 <= (metaCount - 1)) {
 						if (world[count + 1][metaCount - 1] == '·') {
+
+							// Sum 1...
 							sum++;
+
 						}
 					}
 
@@ -180,66 +217,110 @@ public class GameOfConway {
 						newWorld[count][metaCount] = ' ';
 					}
 
-				} else {
-					sum = 0;
+				}
+
+				// Filter if the cell is dead.
+				/**
+				 * 
+				 * Rules of dead cell:
+				 * 
+				 * 1. If dead cell is near to 3 live cells then they revive.
+				 * 
+				 */
+				else {
+
 					if (HEIGHT > (count + 1)) {
 						if (world[count + 1][metaCount] == '·') {
+
+							// Sum 1...
 							sum++;
+
 						}
 					}
 
 					if (HEIGHT > (count + 1) && WIDTH > (metaCount + 1)) {
 						if (world[count + 1][metaCount + 1] == '·') {
+
+							// Sum 1...
 							sum++;
+
 						}
 					}
 
 					if (WIDTH > (metaCount + 1)) {
 						if (world[count][metaCount + 1] == '·') {
+
+							// Sum 1...
 							sum++;
+
 						}
 					}
 
 					if (0 <= (count - 1) && WIDTH > (metaCount + 1)) {
 						if (world[count - 1][metaCount + 1] == '·') {
+
+							// Sum 1...
 							sum++;
+
 						}
 					}
 
 					if (0 <= (count - 1)) {
 						if (world[count - 1][metaCount] == '·') {
+
+							// Sum 1...
 							sum++;
+
 						}
 					}
 
 					if (0 <= (count - 1) && 0 <= (metaCount - 1)) {
 						if (world[count - 1][metaCount - 1] == '·') {
+
+							// Sum 1...
 							sum++;
+
 						}
 					}
 
 					if (0 <= (metaCount - 1)) {
 						if (world[count][metaCount - 1] == '·') {
+
+							// Sum 1...
 							sum++;
+
 						}
 					}
 
 					if (HEIGHT > (count + 1) && 0 <= (metaCount - 1)) {
 						if (world[count + 1][metaCount - 1] == '·') {
+
+							// Sum 1...
 							sum++;
+
 						}
 					}
 
+					// Filter if the worldRules[2] to revive cells are fulfilled.
 					if (sum == worldRules[2]) {
+
+						// Set this position of the worl to '·'.
 						newWorld[count][metaCount] = '·';
-					} else {
+
+					} // Filter if the worldRules[2] to revive cells aren't fulfilled
+
+					else {
+
+						// Set this position of the worl to ' '.
 						newWorld[count][metaCount] = ' ';
+
 					}
 				}
 			}
 
 		}
 
+		// Equals the world to the newWorld.
 		world = newWorld;
 
 	}
