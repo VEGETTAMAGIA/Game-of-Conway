@@ -53,7 +53,7 @@ public class GameOfConway {
 	private void worldPrint() {
 
 		// Print title.
-		System.out.print("\n" + name + " món!\n");
+		System.out.print("\nMon de " + name + "!\n");
 
 		// Print.
 		// Y-AXIS.
@@ -1109,6 +1109,14 @@ public class GameOfConway {
 
 					// Set cellsInicialize as false.
 					cellsInicialize = false;
+
+				}
+
+				// Filter if the world is not initialize.
+				else {
+
+					// Error message.
+					System.out.print("\nSiusplau primer inicialitza el mon primer\n");
 
 				}
 
